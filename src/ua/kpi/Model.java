@@ -73,12 +73,12 @@ public class Model {
         }
         if (flag)
             System.out.println("-----------------------------------------------VERIFICATION---------------------------------------------------");
-        printStatistic(timeModeling);
+        printStatistic();
     }
 
-    public void printStatistic(double timeModeling) {
-        System.out.printf(" numCreate= %3d;  numProcess = %3d;  failure = %3d;  average waiting time=%5.10f;  Average device=%5.10f;  probability of failure = %5.10f;  average queue length = %5.10f;\n",
-                numCreate, numProcess, failure, getSumWaitingTime() / numProcess, getSumDeltaT() / timeModeling, getProbabilityOfFailure(), getSumWaitingTime() / timeModeling);
+    public void printStatistic() {
+        System.out.printf(" delayCreate = %5.2f;  delayProcess = %5.2f;  maxQueue = %3d; numCreate= %3d;  numProcess = %3d;  failure = %3d;  Qavg=%5.10f;  Ravg=%5.10f;  probability = %5.10f;  Lavg = %5.10f;\n",
+                delayCreate, delayProcess, maxqueue, numCreate, numProcess, failure, getSumWaitingTime() / numProcess, getSumDeltaT() / tnext, getProbabilityOfFailure(), getSumWaitingTime() / tnext);
     }
 
     public void printInfo() {
